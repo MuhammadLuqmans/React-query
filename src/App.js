@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { ReactQueryDevtools } from 'react-query/devtools'
 import Home from "./components/Home.page";
 import RQSSuperHeroes from "./components/RQSSuperHeroes.page";
 import SuperHeroes from "./components/SuperHeroes.page";
@@ -17,7 +18,6 @@ const App = () => {
           maxWidth: "500px",
           justifyContent: "space-around",
           margin: "auto",
-          background: "#dfc45f",
           padding: "20px",
           textDecoration: "none",
           listStyleType: "none",
@@ -48,12 +48,14 @@ const App = () => {
           </Link>
         </li>
       </ul>
+    </div>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rqssuperHeroes" element={<RQSSuperHeroes />} />
         <Route path="/superHeroes" element={<SuperHeroes />} />
       </Routes>
-    </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 };
